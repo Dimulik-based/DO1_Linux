@@ -41,15 +41,15 @@ checking with `timedatectl`
 
 - setting static ip address and dns settings through changing the config in `/etc/netplan/"my network config.yaml"`.  
 
-![open_ip_config](./misc/open_ip_config)  
+![open_ip_config](./misc/open_ip_config.jpg)  
 
  - using vim i'm setting my static gateway ip to `192.168.1.175/24`(/24 for masking first 3 numbers and leaving the last one for everyone else to see) and dns servers to `1.1.1.1` and `8.8.8.8`  
  ![netplan_config](./misc/netplan_config.jpg)  
  next, using `ip route show` command we can assure that we have changed our ip address to this in config file  
- ![changed_ip](./misc/chenged_ip.jpg)  
+ ![changed_ip](./misc/changed_ip.jpg)  
  - pinging 1.1.1.1 and ya.ru to see if we are connected to network and do we have any packet loss (spoiler: we don't)  
  ![ping_dns](./misc/ping_dns.jpg)  
- ![ping_yandex](./misc/ping_yandex)
+ ![ping_yandex](./misc/ping_yandex.jpg)
 
 
 
