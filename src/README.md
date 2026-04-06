@@ -22,7 +22,8 @@
 `/etc/localtime/` using this command `sudo ln -sf /usr/share/zoneinfo/Asia/Yekaterinburg /etc/localtime/`
 checking with `timedatectl`  
 ![timedatectl](./misc/time_and_date.jpg)
-- outputing names of the network interfaces using `ip link` command, which shows 2 interfaces 
+- outputing names of the network interfaces using `ip link` command, which shows 2 interfaces  
+![ip_link](./misc/ip_link.jpg)
 1. lo
  > **lo** (loopback) network interface is used by device to send data to itself for testing and local communication  
 2. actual  router interface connected through Ethernet cable *(enp03s)*, which has *ipv6* address
@@ -36,7 +37,23 @@ checking with `timedatectl`
 
 - to get external ip address of the gateway, which is the address of my router i'm curling the ifconfig with `curl ifconfig.me` command. also I'm adding an empty line to separate it from my hostname and username)  
 
-![external_ip](./misc/external_ip.jpg)
+![external_ip](./misc/external_ip.jpg)  
+
+- setting static ip address and dns settings through changing the config in `/etc/netplan/"my network config.yaml"`.  
+
+![open_ip_config](./misc/open_ip_config)  
+
+ - using vim i'm setting my static gateway ip to `192.168.1.175/24`(/24 for masking first 3 numbers and leaving the last one for everyone else to see) and dns servers to `1.1.1.1` and `8.8.8.8`  
+ ![netplan_config](./misc/netplan_config.jpg)  
+ next, using `ip route show` command we can assure that we have changed our ip address to this in config file  
+ ![changed_ip](./misc/chenged_ip.jpg)  
+ - pinging 1.1.1.1 and ya.ru to see if we are connected to network and do we have any packet loss (spoiler: we don't)  
+ ![ping_dns](./misc/ping_dns.jpg)  
+ ![ping_yandex](./misc/ping_yandex)
+
+
+
+ 
 
 
 
